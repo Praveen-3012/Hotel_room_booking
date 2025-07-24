@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Room Booking</title>
+  <style>
+    body {
+      background-color: beige;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    form {
+      max-width: 600px;
+      margin: auto;
+      background-color: #fdfdfd;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+    input, select, textarea, progress {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .inline-group {
+      display: flex;
+      gap: 10px;
+    }
+    .inline-group > * {
+      flex: 1;
+    }
+    .subheading {
+      font-size: 1.2em;
+      margin-top: 25px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hotel Room Booking Form</h1>
+  <form action="/serverlogic" method="post">
+    
+    <div class="subheading">Personal Details</div>
+    <div class="inline-group">
+      <input type="text" name="firstname" placeholder="First Name" required autofocus>
+      <input type="text" name="lastname" placeholder="Last Name" required>
+    </div>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="tel" name="phone" placeholder="Phone Number" required pattern="[0-9]{10}" maxlength="10">
+
+    <div class="subheading">Room Preferences</div>
+    <label>Room Type:</label>
+    <input type="radio" name="roomtype" value="standard" required> Standard
+    <input type="radio" name="roomtype" value="deluxe"> Deluxe
+    <input type="radio" name="roomtype" value="suite"> Suite
+
+    <label>Extra Facilities:</label>
+    <input type="checkbox" name="facilities" value="wifi"> Wi-Fi
+    <input type="checkbox" name="facilities" value="breakfast"> Breakfast
+    <input type="checkbox" name="facilities" value="ac"> AC
+    <input type="checkbox" name="facilities" value="tv"> TV
+
+    <label for="guests">Number of Guests:</label>
+    <select id="guests" name="guests" required>
+      <option value="">--Select--</option>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4+</option>
+    </select>
+
+    <label for="checkin">Check-in Date:</label>
+    <input type="date" id="checkin" name="checkin" required>
+
+    <label for="checkout">Check-out Date:</label>
+    <input type="date" id="checkout" name="checkout" required>
+
+    <label for="requests">Special Requests:</label>
+    <textarea id="requests" name="requests" rows="4" placeholder="Anything we should know?"></textarea>
+
+    <label for="progress">Booking Completion:</label>
+    <progress id="progress" value="80" max="100"></progress>
+
+    <div class="subheading">Submit</div>
+    <input type="submit" value="Book Now">
+    <input type="reset" value="Reset Form">
+  </form>
+</body>
+</html>
